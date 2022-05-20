@@ -1,0 +1,73 @@
+.card {
+  &.animate-right {
+    .card__inner {
+      animation: animateRight 0.7s ease-out;
+      animation-fill-mode: forwards;
+    }
+
+    .card__shadow {
+      animation: animateShadowRight 0.7s ease-out;
+      animation-fill-mode: forwards;
+    }
+  }
+
+  &.animate-left {
+    .card__inner {
+      animation: animateLeft 0.7s ease-out;
+      animation-fill-mode: forwards;
+    }
+
+    .card__shadow {
+      animation: animateShadowLeft 0.7s ease-out;
+      animation-fill-mode: forwards;
+    }
+  }
+}
+
+@keyframes animateRight {
+  0% {
+    transform: rotate(-1deg);
+  }
+  50% {
+    transform: rotate(-2deg);
+  }
+  100% {
+    transform: rotate(-1deg);
+  }
+}
+
+@keyframes animateLeft {
+  0% {
+    transform: rotate(-1deg);
+  }
+  50% {
+    transform: rotate(1deg);
+  }
+  100% {
+    transform: rotate(-1deg);
+  }
+}
+
+@keyframes animateShadowRight {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-3deg) translateY(1px);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes animateShadowLeft {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(2deg) translate(3px);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}

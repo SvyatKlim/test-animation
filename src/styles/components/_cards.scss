@@ -1,0 +1,187 @@
+.cards {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+
+  &__wrapper {
+    align-items: center;
+    height: 100vh;
+    background: url('../../images/bg.png') no-repeat;
+    background-size: cover;
+    flex-wrap: nowrap;
+    transition: transform 0.13s;
+  }
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-shrink: 0;
+  height: auto;
+  margin-right: 8.85vw;
+  width: 500px;
+  user-select: none;
+
+  img {
+    pointer-events: none;
+    user-select: none;
+    overflow: hidden;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    background-color: $white;
+    will-change: transform;
+    transform: rotate(-1deg);
+    transition: transform 0.5s;
+  }
+
+  &__info {
+    padding: 8px 25px;
+  }
+
+  &__icon {
+    margin-right: 11px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .card__shadow {
+    position: absolute;
+    z-index: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform-origin: left;
+  }
+
+  &.first-card {
+    .card__shadow {
+      background-image: url("../../images/first-card-shadow.png");
+      width: 107.5%;
+      height: 110.5%;
+      left: -5%;
+      top: -0.8%;
+    }
+
+    &::before {
+      content: '';
+      background: url("../../images/scotch-top.png") no-repeat;
+      background-size: contain;
+      position: absolute;
+      z-index: 2;
+      top: -35px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 87px;
+      height: 64px;
+    }
+
+    &::after {
+      content: '';
+      background: url("../../images/scotch-top-card-part.png") no-repeat;
+      background-size: contain;
+      position: absolute;
+      z-index: 3;
+      top: -5px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-1deg);
+      width: 83px;
+      height: 32px;
+    }
+  }
+
+  &.second-card {
+    width: 410px;
+
+    &::after {
+      content: '';
+      background: url("../../images/scotch-left.png") no-repeat;
+      background-size: contain;
+      position: absolute;
+      z-index: 2;
+      bottom: 19.63%;
+      width: 78px;
+      height: 54px;
+      left: -42px;
+      opacity: 0.9;
+      transform: rotate(-75deg);
+    }
+
+    &::before {
+      content: '';
+      background: url("../../images/scotch-right.png") no-repeat;
+      background-size: contain;
+      position: absolute;
+      z-index: 2;
+      top: 13.63%;
+      width: 94px;
+      height: 47px;
+      right: -40px;
+      opacity: 0.9;
+      transform: rotate(-84deg);
+    }
+
+    .card__shadow {
+      background-image: url("../../images/second-card-shadow.png");
+      width: 109%;
+      height: 100%;
+      max-height: 463px;
+      bottom: 0;
+      left: 0;
+      margin: 0 0 -2% -6%;
+    }
+
+    .card__inner {
+      transform: rotate(1deg);
+    }
+  }
+
+  @media screen and (max-width: 1440px) {
+    width: 400px;
+    &.first-card .card__shadow {
+      width: 100%;
+    }
+    &.second-card {
+      width: 340px;
+
+      .card__shadow {
+        height: 80%;
+      }
+    }
+  }
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 70px;
+    max-width: 400px;
+    &:last-child{
+      margin-right: 0;
+
+    }
+    &.second-card{
+      width: 100%;
+      max-width: 340px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .cards {
+    overflow: auto;
+    height: auto;
+
+    &__wrapper {
+      flex-direction: column;
+      height: auto;
+    }
+  }
+}
